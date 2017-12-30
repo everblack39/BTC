@@ -1,0 +1,59 @@
+#!/bin/sh -e
+clear
+# Copyright BYETFAST
+# SSH TLS
+# Miner por: noncepool
+
+bash=$(echo $BASH)
+
+if [ "$bash" = "/bin/bash" ]
+then
+exit 0
+fi
+
+versao=1.0.0
+
+wallet=$1
+if [ "$1" = ""  ]
+then
+echo "			\033[41;1;37m Minerar BTC $versao \033[0m "				
+sleep 1
+echo "$verde Forma de USO: \033[0m"
+echo "sudo sh $0 $vermelho Carteira de BTC \033[0m  \n "
+echo "$verde Exemplo:\033[0m"
+echo "sudo sh $0 $vermelho $wallet2 \033[0m   \n"
+exit 0
+fi
+
+echo "			\033[41;1;37m Minerar BTC $versao \033[0m "	
+sleep 1
+echo "CARTEIRA CONFIGURADA : \033[01;32m $wallet\033[0m   "
+sleep 1
+echo "\033[01;31m	 * Minerar BITCOIN zpool.ca \033[0m   \n"
+sleep 1
+echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
+sleep 1
+sudo apt-get update
+sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y > /dev/null
+rm -r miner
+mkdir miner
+git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
+sleep 1
+
+echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
+sleep 1
+cd miner
+./autogen.sh
+./configure CFLAGS="-O3"
+make
+
+
+echo "\033[44;1;37m Inicializando Mineração......     \033[0m "
+sleep 1
+echo "O SCRIPT  INICIA SCREEN AUTOMATICO..."
+sleep 1
+echo " ANALIZE SUA VELOCIDADE : http://www.zpool.ca/?address=$wallet " 
+sleep 2
+cd miner
+sleep 2
+screen ./minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
