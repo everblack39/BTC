@@ -35,10 +35,10 @@ echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
 sleep 1
 sudo apt-get update
 sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y > /dev/null
-sudo apt-get install screen
+sudo apt-get install screen -y
 sudo rm -r miner
 sudo mkdir miner
-git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
+sudo git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
 sleep 1
 
 echo "\033[44;1;37m Configurando e Compilando Recursos.....     \033[0m "
