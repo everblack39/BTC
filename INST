@@ -35,7 +35,8 @@ echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
 sleep 1
 sudo apt-get update
 sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y > /dev/null
-rm -r miner
+sudo apt-get install screen
+sudo rm -r miner
 mkdir miner
 git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
 sleep 1
@@ -48,12 +49,13 @@ cd miner
 make
 
 
-echo "\033[44;1;37m Inicializando Mineração......     \033[0m "
+echo "\033[44;1;37m Inicializando Mineração......     \033[0m \n "
 sleep 1
-echo "O SCRIPT  INICIA SCREEN AUTOMATICO..."
+echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
 sleep 1
-echo " ANALIZE SUA VELOCIDADE : http://www.zpool.ca/?address=$wallet " 
+echo " \033[01;31mANALIZE SUA VELOCIDADE : http://www.zpool.ca/?address=$wallet \033[01;0m" 
 sleep 2
+clear
 cd miner
 sleep 2
 screen ./minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
