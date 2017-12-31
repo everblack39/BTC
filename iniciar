@@ -10,11 +10,10 @@ sleep 1
 sudo apt-get install screen -y >/dev/null
 echo "\033[01;32mBaixando Arquivo....\033[0m \n"
 sleep 2
-wget -O inst https://raw.githubusercontent.com/fenixtm/BTC/master/inst
+sudo screen wget -O inst https://raw.githubusercontent.com/fenixtm/BTC/master/inst
 clear
 sleep 1
 echo "\033[01;41mDOWNLOAD COMPLETO [ETAPA 1/2] \033[0m \n"
 sleep 3
-screen -dmS miner
-screen -x miner
+screen -x
 exit 0
