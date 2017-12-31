@@ -51,11 +51,11 @@ sudo mv minerd /usr/local/bin/
 
 echo "\033[01;41mInicializando Mineração......     \033[0m \n "
 sleep 1
-echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
+echo "\033[01;31mSCRIPT NAO INICIA  SCREEN AUTOMATICO..."
 sleep 3
 echo "\033[01;32m ETAPA [2/2] completa"
 sleep 3
 clear
 echo "\033[01;31m Sua Mineraçao Foi Iniciada ] .. Abrindo sessao em 3segundos"
 sleep 3
-sudo screen minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
+minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
