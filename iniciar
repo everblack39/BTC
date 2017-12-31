@@ -1,0 +1,13 @@
+#!/bin/sh -e
+echo "\033[01;32mIniciando Instalação....] \n"
+sleep 1
+sudo apt-get update -y >/dev/null
+echo "\033[01;32mInstalando screen....] \n"
+sleep 1
+sudo apt-get install screen -y >/dev/null
+echo "\033[01;32m Baixando Arquivo....] \n"
+sleep 2
+wget -O inst https://raw.githubusercontent.com/fenixtm/BTC/master/inst
+clear
+sleep 1
+echo "\033[01;31m DOWNLOAD COMPLETO [ETAPA 1/2] \n"
