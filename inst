@@ -53,9 +53,7 @@ echo "\033[01;41mInicializando Mineração......     \033[0m \n "
 sleep 1
 echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
 sleep 3
-clear
-screen -dmS mineration minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
-clear
 echo "\033[01;32m ETAPA [2/2] completa"
-sleep1
-screen -x
+sleep 3
+clear
+minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
