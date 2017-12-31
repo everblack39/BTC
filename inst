@@ -56,7 +56,7 @@ sleep 3
 echo "\033[01;32m ETAPA [2/2] completa"
 sleep 3
 clear
-screen -dmS miner minerd -a yescrypt stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
+screen -dmS screen minerd -a yescrypt stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
 echo "\033[01;31m Sua Mineraçao Foi aberta em [ screen -x miner ] .. Abrindo sessao em 3segundos"
 sleep 3
 screen -x miner
