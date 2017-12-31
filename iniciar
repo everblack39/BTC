@@ -16,4 +16,5 @@ sleep 1
 echo "\033[01;41mDOWNLOAD COMPLETO [ETAPA 1/2] \033[0m \n"
 sleep 3
 screen -dmS miner
+screen -x miner
 exit 0
