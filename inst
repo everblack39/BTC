@@ -47,14 +47,14 @@ cd miner
 ./configure CFLAGS="-O3"
 make
 cd miner
-sudo mv minerd /usr/sbin/
+sudo mv minerd /usr/local/bin/
 
 echo "\033[01;41mInicializando Mineração......     \033[0m \n "
 sleep 1
 echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
 sleep 3
 clear
-screen -dms mineration minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
+screen -dmS mineration minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
 clear
 echo "\033[01;32m ETAPA [2/2] completa"
 sleep1
