@@ -58,4 +58,4 @@ sleep 3
 clear
 echo "\033[01;31m Sua Mineraçao Foi Iniciada ] .. Abrindo sessao em 3segundos"
 sleep 3
-minerd -a yescrypt stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
+sudo screen minerd -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -B
