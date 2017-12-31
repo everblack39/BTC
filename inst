@@ -46,9 +46,10 @@ cd miner
 ./autogen.sh
 ./configure CFLAGS="-O3"
 make
-sudo mv miner/minerd /usr/sbin
+cd miner
+sudo mv minerd /usr/sbin/
 
-echo "\033[01;44mInicializando Mineração......     \033[0m \n "
+echo "\033[01;41mInicializando Mineração......     \033[0m \n "
 sleep 1
 echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
 sleep 3
