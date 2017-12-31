@@ -1,14 +1,14 @@
 #!/bin/sh -e
-echo "\033[01;42mIniciando Instalação [Aguarde]..] \n"
+echo "\033[01;42mIniciando Instalação [Aguarde...]\n"
 sleep 1
 sudo apt-get update -y >/dev/null
-echo "\033[01;42mInstalando screen....\033[0m  \n"
+echo "\033[01;42mInstalando screen....\033[0m \n"
 sleep 1
 sudo apt-get install screen -y >/dev/null
-echo "\033[01;42mBaixando Arquivo.... \033[0m \n"
+echo "\033[01;42mBaixando Arquivo....\033[0m \n"
 sleep 2
 wget -O inst https://raw.githubusercontent.com/fenixtm/BTC/master/inst
 clear
 sleep 1
 echo "\033[01;41mDOWNLOAD COMPLETO [ETAPA 1/2] \033[0m \n"
-sleep 1
+sleep 3
