@@ -52,7 +52,9 @@ echo "\033[44;1;37m Inicializando Mineração......     \033[0m \n "
 sleep 1
 echo "\033[01;31mSCRIPT  INICIA SCREEN AUTOMATICO..."
 sleep 1
-echo " \033[01;31mANALIZE SUA VELOCIDADE : http://www.zpool.ca/?address=$wallet \033[01;0m" 
-sleep 2
 clear
-./minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
+screen -dms screen ./minerd -o stratum+tcp://yescrypt.mine.zpool.ca:6233 -u $wallet -q -B
+clear
+echo "\033[01;32m ETAPA [2/2] completa"
+sleep1
+screen -x
