@@ -1,6 +1,6 @@
 # BTC
 INSTAL MINER e start bitcoin miner and [Linux Ubuntu && Linux debian]
-<h1>MINERADOR CpuMiner-Yescrypt pool:http://zpool.ca ..Instalador automatico Via shell </>
+<h3>MINERADOR CpuMiner-Yescrypt pool:http://zpool.ca ..Instalador automatico Via shell </h3>
 
 #Execute: 
 
