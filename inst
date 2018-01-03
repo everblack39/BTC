@@ -42,8 +42,8 @@ sleep 1
 echo "\033[44;1;37m Baixando Pacotes....     \033[0m "
 sleep 1
 sudo apt-get update >/dev/null
-sudo apt-get install git >/dev/null
-sudo apt-get install screen >/dev/null
+sudo apt-get install git -y >/dev/null
+sudo apt-get install screen -y >/dev/null
 sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
 sudo rm -r miner 
 git clone https://github.com/noncepool/cpuminer-yescrypt.git miner
