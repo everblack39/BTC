@@ -1,0 +1,40 @@
+echo "$ve AGUARDE..."
+sudo apt-get update >/dev/null
+sudo apt-get install git -y >/dev/null
+sudo apt-get install screen -y >/dev/null
+sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
+sudo rm -rf miner &>/dev/null
+echo "$az \n"
+git clone https://github.com/noncepool/cpuminer-yescrypt.git yescrypt
+echo "$cor_off"
+cd yescrypt
+/autogen.sh 
+./configure CFLAGS="-O3" 
+make 
+mv yescrypt /usr/local/bin/yescrypt-folder
+mv /usr/local/bin/yescrypt-folder/minerd  /usr/local/bin/yescrypt
+if [ "$3" = ""  ]
+then
+screeen -dmS screen yescrypt -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -R 1
+else
+screeen -dmS screen yescrypt -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -R 1
+fi
+clear
+sleep 2
+echo "$ve_f MINERAÇAO INICIADA UTILIZE (screen -x)"
+;;
+#CRYPT =====(2)
+*-crypt)
+echo "$az_f VOCE SELECIONOU$vr cryptonight$rx SUPPORTXMR.COM $cor_off"
+#ERROr
+if [ "$2" = ""  ]
+then
+echo "$am =============================="
+echo "$ve_f ERROR:$cor_off
+$az SEGUINTE ERRO ENCONTRADO:
+$rx  -CARTEIRA NAO ADICIONADA"
+echo "$am =============================="
+exit 0
+fi
+;;
+esac
