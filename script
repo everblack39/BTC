@@ -1,3 +1,71 @@
+#!/bin/sh -e
+#=======================
+#SCRIPT BY: @Fenix_linux
+#Pool Miner Script
+#=======================
+#Linux [Ubuntu - Debian]
+bash=$(echo $BASH)
+
+
+if [ "$bash" = "/bin/bash" ]
+then
+exit 0
+fi
+
+#Variaveis Cores
+cor="\033[01;"
+cor_off="\033[0m"
+ver="31m"
+verd="32m"
+ama="33m"
+azu="34m"
+rox="35m"
+ver_f="41m"
+verd_f="42m"
+ama_f="43m"
+azu_f="44m"
+rox_f="45m"
+ve=$cor$ver
+vr=$cor$verd
+am=$cor$ama
+az=$cor$azu
+rx=$cor$rox
+ve_f=$cor$ver_f
+ar_f=$cor$verd_f
+am_f=$cor$ama_f
+az_f=$cor$azu_f
+rx_f=$cor$rox_f
+#/Cores
+clear
+version=1.2
+echo "$am =============================="
+echo "$vr ADVANCED MINER$ve VERSAO:$version"
+echo "$am ==============================$cor_off"
+if [ "$1" = ""  ]
+then
+echo "$am =============================="
+echo "$ve_f ERROR:$cor_off
+$az SEGUINTE ERRO ENCONTRADO:
+$rx  -ALGORITMO NAO SELECIONADO"
+echo "$am =============================="
+exit 0
+fi
+opt=$1
+case $opt in
+#YESC =====(1)
+*-yescrypt)
+echo "$az_f VOCE SELECIONOU$vr yescrypt$rx ZPOOl.CA $cor_off"
+#ERROr
+if [ "$2" = ""  ]
+then
+echo "$am =============================="
+echo "$ve_f ERROR:$cor_off
+$az SEGUINTE ERRO ENCONTRADO:
+$rx  -CARTEIRA NAO ADICIONADA"
+echo "$am =============================="
+exit 0
+fi
+echo "$ve_f INICIANDO INSTALAÃ‡AO $am_f BAIXANDO PACOTES$cor_off"
 echo "$ve AGUARDE..."
 sudo apt-get update >/dev/null
 sudo apt-get install git -y >/dev/null
@@ -13,6 +81,7 @@ cd yescrypt
 make 
 mv yescrypt /usr/local/bin/yescrypt-folder
 mv /usr/local/bin/yescrypt-folder/minerd  /usr/local/bin/yescrypt
+sudo chmod +x /usr/local/bin/yescrypt
 if [ "$3" = ""  ]
 then
 screeen -dmS screen yescrypt -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -R 1
@@ -21,7 +90,7 @@ screeen -dmS screen yescrypt -a yescrypt -o stratum+tcp://mine.zpool.ca:6233 -u 
 fi
 clear
 sleep 2
-echo "$ve_f MINERAÇAO INICIADA UTILIZE (screen -x)"
+echo "$ve_f MINERAÃ‡AO INICIADA UTILIZE (screen -x)$cor_off"
 ;;
 #CRYPT =====(2)
 *-crypt)
@@ -36,5 +105,27 @@ $rx  -CARTEIRA NAO ADICIONADA"
 echo "$am =============================="
 exit 0
 fi
-;;
+sudo apt-get update >/dev/null
+sudo apt-get install git -y >/dev/null
+sudo apt-get install screen -y >/dev/null
+sudo apt-get install build-essential libcurl4-openssl-dev gcc make git nano autoconf automake -y >/dev/null
+sudo rm -rf cpuminer &>/dev/null
+sudo git clone https://github.com/OhGodAPet/cpuminer-multi.git cpuminer
+cd cpuminer
+chmod +x autogen.sh
+./autogen.sh
+./configure CFLAG=S"-march=native"
+sudo make
+sudo make install
+mv cpuminer /usr/local/bin/
+mv /usr/local/bin/cpuminer/minerd /usr/local/bin/crypto
+sudo chmod +x /usr/local/bin/crypto
+if [ "$3" = ""  ]
+then
+screeen -dmS screen crypto -a cryptonight -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -t $core -p x
+else
+screeen -dmS screen crypto -a cryptonight -o stratum+tcp://mine.zpool.ca:6233 -u $wallet -p x
+fi
+sleep 2
+echo "$ve_f MINERAÃ‡AO INICIADA UTILIZE (screen -x)$cor_off"
 esac
